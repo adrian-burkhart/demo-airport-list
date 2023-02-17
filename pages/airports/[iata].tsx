@@ -9,10 +9,14 @@ interface Props {
 }
 
 const Page: NextPage<Props> = ({ airport }) => {
-  return <Layout>
-    <h1 className='text-2xl'>Airport: {airport.name}</h1>
-    <pre className='mt-10 text-gray-500 text-sm'>{JSON.stringify(airport, undefined, 2)}</pre>
-  </Layout>
+  return (
+    <Layout>
+      <h1 className='text-2xl'>Airport: {airport.name}</h1>
+      <pre className='mt-10 text-gray-500 text-sm'>
+        {JSON.stringify(airport, undefined, 2)}
+      </pre>
+    </Layout>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -22,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   return {
     props: {
       airport,
-    }
+    },
   }
 }
 
